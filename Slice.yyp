@@ -1,12 +1,14 @@
 {
   "resources": [
-    {"id":{"name":"__sliceInit","path":"scripts/__sliceInit/__sliceInit.yy",},"order":0,},
+    {"id":{"name":"__SliceInit","path":"scripts/__SliceInit/__SliceInit.yy",},"order":0,},
     {"id":{"name":"spr_tabbyducky","path":"sprites/spr_tabbyducky/spr_tabbyducky.yy",},"order":8,},
     {"id":{"name":"SliceTilesetGetMetadata","path":"scripts/SliceTilesetGetMetadata/SliceTilesetGetMetadata.yy",},"order":4,},
     {"id":{"name":"Slice","path":"scripts/Slice/Slice.yy",},"order":0,},
     {"id":{"name":"obj_test_get_sprite","path":"objects/obj_test_get_sprite/obj_test_get_sprite.yy",},"order":3,},
     {"id":{"name":"__SliceSpriteClass","path":"scripts/__SliceSpriteClass/__SliceSpriteClass.yy",},"order":1,},
+    {"id":{"name":"__SliceTrace","path":"scripts/__SliceTrace/__SliceTrace.yy",},"order":2,},
     {"id":{"name":"__SliceTilemapClass","path":"scripts/__SliceTilemapClass/__SliceTilemapClass.yy",},"order":2,},
+    {"id":{"name":"__SliceThrow","path":"scripts/__SliceThrow/__SliceThrow.yy",},"order":1,},
     {"id":{"name":"LayerToSlice","path":"scripts/LayerToSlice/LayerToSlice.yy",},"order":5,},
     {"id":{"name":"__SliceElementClass","path":"scripts/__SliceElementClass/__SliceElementClass.yy",},"order":0,},
     {"id":{"name":"SliceTilesetSetMetadata","path":"scripts/SliceTilesetSetMetadata/SliceTilesetSetMetadata.yy",},"order":3,},
