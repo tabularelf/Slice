@@ -7,7 +7,7 @@ function __SliceTilemapClass(_tilemapID) : __SliceElementClass() constructor {
 	
 	static GetMetadataAtPixel = function(_x, _y) {
 		var _tileData = global.__SliceStruct.tilesetsList[__tileset];
-		var _index = tile_get_index(tilemap_get(__elementID, tilemap_get_cell_x_at_pixel(__elementID, _x, _y), tilemap_get_cell_y_at_pixel(__elementID, _x, _y)));
+		var _index = tile_get_index(tilemap_get(__elementID, _x div __tileWidth, _y div __tileHeight);
 		
 		if (_index > array_length(_tileData.__metadata)-1) return undefined;
 		
@@ -49,5 +49,13 @@ function __SliceTilemapClass(_tilemapID) : __SliceElementClass() constructor {
 	
 	static GetTileSize = function() {
 		return [GetTileWidth(), GetTileHeight()];	
+	}
+	
+	static GetIndex = function(_x, _y) {
+		return tile_get_index(tilemap_get(__elementID, _x, _y));
+	}
+	
+	static GetIndexAtPixel = function(_x, _y) {
+		return tile_get_index(tilemap_get(__elementID, _x div __tileWidth, _y div __tileHeight));
 	}
 }
