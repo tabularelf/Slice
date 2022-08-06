@@ -85,7 +85,7 @@ function __SliceClass(_layerID) constructor {
 		var _array = [];
 		repeat(array_length(_elements)) {
 			var _id = layer_instance_get_instance(_elements[_i]);
-			if (_id != -1) {
+			if (!instance_exists(_id)) {
 				if ((_id.object_index == _assetIndex) && (layer_get_element_type(_elements[_i]) == layerelementtype_instance)) {
 					array_push(_array, _elements[_i]);
 				}
@@ -102,7 +102,7 @@ function __SliceClass(_layerID) constructor {
 		var _array = [];
 		repeat(array_length(_elements)) {
 			var _id = layer_instance_get_instance(_elements[_i]);
-			if (_id != -1) {
+			if (!instance_exists(_id)) {
 				if ((_id.object_index == _assetIndex) && (layer_get_element_type(_elements[_i]) == layerelementtype_instance)) {
 					array_push(_array, _id);
 				}
