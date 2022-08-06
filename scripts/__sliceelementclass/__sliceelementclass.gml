@@ -3,4 +3,8 @@ function __SliceElementClass() constructor {
 		layer_element_move(__element, _slice.__layerID);
 		return self;
 	}
+	
+	static GetElementID = function() {
+		return __elementID;	
+	}
 }
