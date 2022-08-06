@@ -9,6 +9,7 @@ function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor 
 	__xScale = layer_sprite_get_xscale(_spriteElement);
 	__yScale = layer_sprite_get_yscale(_spriteElement);
 	__angle = layer_sprite_get_angle(_spriteElement);
+	__index = layer_sprite_get_index(_spriteElement);
 	
 	static SetSprite = function(_sprite) {
 		layer_sprite_change(__elementID, _sprite);
