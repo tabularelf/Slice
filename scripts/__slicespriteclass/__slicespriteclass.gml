@@ -1,3 +1,4 @@
+/// @ignore
 function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor {
 	__elementID = _spriteElement;
 	__spriteID = layer_sprite_get_sprite(_spriteElement);

@@ -1,5 +1,6 @@
-#macro __SLICE_VERSION "v0.0.1alpha"
-#macro __SLICE_CREDITS "TabularElf - https://tabelf.link/"
+/// @ignore
+#macro __SLICE_VERSION "v0.0.2alpha"
+#macro __SLICE_CREDITS "@TabularElf - https://tabelf.link/"
 __SliceTrace(__SLICE_VERSION + " initalized! Created by " + __SLICE_CREDITS);
 
 function __SliceInit() {

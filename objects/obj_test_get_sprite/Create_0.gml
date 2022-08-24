@@ -5,6 +5,7 @@ show_debug_message(LayerToSlice("Instances").GetAsset("obj_test_get_sprite"));
 show_debug_message(LayerToSlice("Tiles_1").GetAsset("TileSet1"));
 
 sprites = LayerToSlice("Sprites").GetAsset("spr_tabelf");
+allSprites = LayerToSlice("Sprites").GetAllSprites();
 show_debug_message(LayerToSlice("Instances").GetTilemap());
 
 SliceTilesetSetMetadata(TileSet1, 1, {test: true});

@@ -1,6 +1,7 @@
 /*
 	The bread and the buffer of this entire system.
 */
+/// @ignore
 function __SliceClass(_layerID) constructor {
 	__layerID = _layerID;
 	
@@ -17,14 +18,30 @@ function __SliceClass(_layerID) constructor {
 	
 		var _type = asset_get_type(_assetName);
 		var _result;
+		var _assetIndex = asset_get_index(_assetName);
 		switch(_type) {
-			case asset_sprite: _result = __GetAssetSpriteElement(asset_get_index(_assetName)); break;
-			case asset_object: _result = __GetAssetInstancesByObjectElement(asset_get_index(_assetName)); break;
-			case asset_tiles: _result = __GetAssetTilemapElement(asset_get_index(_assetName)); break;
+			
+			case asset_sprite: _result = __GetAssetSpriteElement(_assetIndex); break;
+			case asset_object: _result = /* Feather ignore once GM1043 */ __GetAssetInstancesByObjectElement(_assetIndex); break;
+			case asset_tiles: _result = /* Feather ignore once GM1041 */__GetAssetTilemapElement(_assetIndex); break;
 			default: _result = []; break;
 		}
 		
 		return _result;
+	}
+	
+	static GetAllSprites = function() {
+		var _elements = layer_get_all_elements(__layerID);
+		var _i = 0;
+		var _array = [];
+		repeat(array_length(_elements)) {
+			if ((layer_get_element_type(_elements[_i]) == layerelementtype_sprite)) {
+				array_push(_array, new __SliceSpriteClass(_elements[_i]));
+			}
+			++_i;
+		}
+		
+		return _array;	
 	}
 	
 	static GetTilemap = function() {
@@ -38,6 +55,7 @@ function __SliceClass(_layerID) constructor {
 		}
 		
 		// If none found
+		/* Feather ignore once GM1035 */
 		return undefined;
 	}
 	

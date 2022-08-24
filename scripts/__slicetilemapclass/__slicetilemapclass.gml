@@ -1,4 +1,4 @@
-
+/// @ignore
 function __SliceTilemapClass(_tilemapID) : __SliceElementClass() constructor {
 	__elementID = _tilemapID;
 	__tileset = tilemap_get_tileset(_tilemapID);

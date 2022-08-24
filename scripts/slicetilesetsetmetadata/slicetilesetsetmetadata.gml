@@ -1,7 +1,7 @@
 /// @func SliceTileSetSetMetadata
-/// @param {Asset.GMTileSet} tilesetID
-/// @param {Real} index
-/// @param {Any} data
+/// @param {Asset.GMTileSet} _tilesetID
+/// @param {Real} _index
+/// @param {Any} _data
 function SliceTilesetSetMetadata(_tilesetID, _index, _data) {
 	var _tileset = global.__SliceStruct.tilesetsList[_tilesetID];
 	
