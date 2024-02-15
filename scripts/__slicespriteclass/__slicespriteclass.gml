@@ -1,17 +1,8 @@
 /// @ignore
 function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor {
 	__elementID = _spriteElement;
-	__spriteID = layer_sprite_get_sprite(_spriteElement);
-	__speed = layer_sprite_get_speed(_spriteElement);
-	__alpha = layer_sprite_get_alpha(_spriteElement);
-	__blend = layer_sprite_get_blend(_spriteElement);
-	__x = layer_sprite_get_x(_spriteElement);
-	__y = layer_sprite_get_y(_spriteElement);
-	__xScale = layer_sprite_get_xscale(_spriteElement);
-	__yScale = layer_sprite_get_yscale(_spriteElement);
-	__angle = layer_sprite_get_angle(_spriteElement);
-	__index = layer_sprite_get_index(_spriteElement);
-	
+
+	#region Setters
 	static SetSprite = function(_sprite) {
 		layer_sprite_change(__elementID, _sprite);
 		__spriteID = _sprite;
@@ -23,6 +14,8 @@ function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor 
 		__blend = _col;
 		return self;
 	}
+	
+	static SetColor = SetColour;
 	
 	static SetAlpha = function(_alpha) {
 		layer_sprite_alpha(__elementID, _alpha);
@@ -71,44 +64,47 @@ function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor 
 		__index = _index;
 		return self;
 	}
+	#endregion
 	
+	#region Getters
 	static GetAlpha = function() {
-		return __alpha;	
+		return layer_sprite_get_alpha(__elementID);	
 	}
 	
 	static GetColour = function() {
-		return __blend;	
+		return layer_sprite_get_blend(__elementID);	
 	}
 	
 	static GetSprite = function() {
-		return __spriteID;	
+		return layer_sprite_get_sprite(__elementID);
 	}
 	
 	static GetX = function() {
-		return __x;
+		return layer_sprite_get_x(__elementID);
 	}
 	
 	static GetY = function() {
-		return __y;
+		return layer_sprite_get_y(__elementID);
 	}
 	
-	static GetXScale = function() {
-		return __xScale;
+	static GetXscale = function() {
+		return layer_sprite_get_xscale(__elementID);
 	}
 	
-	static GetYScale = function() {
-		return __yScale;
+	static GetYscale = function() {
+		return layer_sprite_get_yscale(__elementID);
 	}
 	
 	static GetSpeed = function() {
-		return __speed;
+		return layer_sprite_get_speed(__elementID);
 	}
 	
 	static GetAngle = function() {
-		return __angle;	
+		return layer_sprite_get_angle(__elementID);	
 	}
 	
 	static GetIndex = function() {
-		return __index;	
+		return layer_sprite_get_index(__elementID);	
 	}
+	#endregion
 }
