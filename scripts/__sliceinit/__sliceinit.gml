@@ -11,24 +11,32 @@ function __SliceInit() {
 			tilesetsList: [],
 			tilesetsMap: {}
 		}
+		//var _array = tag_get_asset_ids("")
 		
-			var _i = 0;
-			// Create a temp layer
-			layer_set_target_room(room_first);
-			var _layer = layer_create(0);		
-			var _tileset = tileset_get_name(_i);
-			while(_tileset != "<undefined>") {
-				var _tilemap = layer_tilemap_create(_layer, 0, 0, _i, 1, 1);
-				var _tileWidth = tilemap_get_tile_width(_tilemap);
-				var _tileHeight = tilemap_get_tile_height(_tilemap);
-				layer_tilemap_destroy(_tilemap);
-				var _tilesetData = new __SliceTilesetClass(_i, _tileWidth, _tileHeight);
-				global.__SliceStruct.tilesetsList[_i] = _tilesetData;
-				global.__SliceStruct.tilesetsMap[$ _tileset] = _tilesetData;
-				_tileset = tileset_get_name(++_i);
-			}
-			layer_destroy(_layer);
-			layer_reset_target_room();
+		// Check if we can use tile_get_info
+		try {
+			tileset_get_info(0);	
+		} catch(_) {
+			
+		}
+		
+		var _i = 0;
+		// Create a temp layer
+		layer_set_target_room(room_first);
+		var _layer = layer_create(0);		
+		var _tileset = tileset_get_name(_i);
+		while(_tileset != "<undefined>") {
+			var _tilemap = layer_tilemap_create(_layer, 0, 0, _i, 1, 1);
+			var _tileWidth = tilemap_get_tile_width(_tilemap);
+			var _tileHeight = tilemap_get_tile_height(_tilemap);
+			layer_tilemap_destroy(_tilemap);
+			var _tilesetData = new __SliceTilesetClass(_i, _tileWidth, _tileHeight);
+			global.__SliceStruct.tilesetsList[_i] = _tilesetData;
+			global.__SliceStruct.tilesetsMap[$ _tileset] = _tilesetData;
+			_tileset = tileset_get_name(++_i);
+		}
+		layer_destroy(_layer);
+		layer_reset_target_room();
 	}
 }
 
