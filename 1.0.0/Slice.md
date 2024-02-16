@@ -31,7 +31,7 @@ Returns: `Boolean`
 |---|---|---|
 |`N/A`|||
 
-Gets whether the Slice exists or not.
+Gets whether the Slice is alive or not.
 
 ### `.Destroy()`
 
@@ -227,7 +227,7 @@ Returns: `FX`
 |---|---|---|
 |`N/A`|||
 
-Gets the current FX state.
+Gets the current FX.
 
 ### `.GetHspeed()`
 
