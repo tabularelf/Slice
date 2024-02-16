@@ -1,8 +1,11 @@
+/// @desc  feather ignore all
+/// @func SliceTilesetGetMetadata
+/// @param {Asset.GMTileSet, String} _tilesetID Description
+/// @param {Real} _index Description
+/// @return {Any}
 function SliceTilesetGetMetadata(_tilesetID, _index) {
-	var _tileData = global.__SliceStruct.tilesetsList[_tilesetID];
-	var _tileIndex = tile_get_index(tilemap_get(_tilemap, tilemap_get_cell_x_at_pixel(_tilemap, _x, _y), tilemap_get_cell_y_at_pixel(_tilemap, _x, _y)));
+	var _tileData = global.__SliceStruct.tilesetsMap[$ is_string(_tilesetID) ? _tilesetID : tileset_get_name(_tilesetID)];
 	
-	if (_tileIndex > array_length(_tileData.__metadata)-1) return undefined;
-	
-	return _tileData.__metadata[_tileIndex];
+	if (_index > array_length(_tileData.__metadata)-1) || (_index < 0) return undefined;
+	return _tileData.__metadata[_index];
 }

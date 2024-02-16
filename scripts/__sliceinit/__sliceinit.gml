@@ -1,5 +1,6 @@
 /// @ignore
-#macro __SLICE_VERSION "v0.0.2alpha"
+/// feather ignore all
+#macro __SLICE_VERSION "v1.0.0"
 #macro __SLICE_CREDITS "@TabularElf - https://tabelf.link/"
 __SliceTrace(__SLICE_VERSION + " initalized! Created by " + __SLICE_CREDITS);
 
@@ -8,7 +9,6 @@ function __SliceInit() {
 	if (_init == false) {
 		_init = true;	
 		global.__SliceStruct = {
-			tilesetsList: [],
 			tilesetsMap: {}
 		}
 		//var _array = tag_get_asset_ids("")
@@ -31,7 +31,6 @@ function __SliceInit() {
 			var _tileHeight = tilemap_get_tile_height(_tilemap);
 			layer_tilemap_destroy(_tilemap);
 			var _tilesetData = new __SliceTilesetClass(_i, _tileWidth, _tileHeight);
-			global.__SliceStruct.tilesetsList[_i] = _tilesetData;
 			global.__SliceStruct.tilesetsMap[$ _tileset] = _tilesetData;
 			_tileset = tileset_get_name(++_i);
 		}

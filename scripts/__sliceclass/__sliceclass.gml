@@ -6,7 +6,6 @@
 function __SliceClass(_layerID) constructor {
 	__layerID = _layerID;
 	__visible = layer_get_visible(_layerID);
-	
 	__beginScript = undefined;
 	__endScript = undefined;
 	
@@ -36,8 +35,9 @@ function __SliceClass(_layerID) constructor {
 			return self;	
 		}
 		
-		__endScript = method({layer: __layerID, callback: _func}, function() {
-			callback(layer, layer_get_depth(layer));
+		var _self = self;
+		__endScript = method({container: _self, callback: _func}, function() {
+			callback(container);
 		});
 		layer_script_end(__layerID, __endScript);
 		return self;
@@ -80,13 +80,8 @@ function __SliceClass(_layerID) constructor {
 		return self;
 	}
 	
-	static EnableFX = function() {
-		layer_enable_fx(__layerID, true);
-		return self;
-	}
-	
-	static DisableFX = function() {
-		layer_enable_fx(__layerID, false);
+	static SetFX = function(_value) {
+		layer_enable_fx(__layerID, _value);	
 		return self;
 	}
 	#endregion
@@ -94,46 +89,62 @@ function __SliceClass(_layerID) constructor {
 	#region Getters
 	
 	#region Layer Specific
+	/// @return {Boolean}
+	static GetFXState = function() {
+		return layer_fx_is_enabled(__layerID);	
+	}
+	
+	/// @return {Struct.FX}
 	static GetFX = function() {
 		return layer_get_fx(__layerID);	
 	}
 	
+	/// @return {Real}
 	static GetHspeed = function() {
 		return layer_get_hspeed(__layerID);	
 	}
 	
+	/// @return {Real}
 	static GetVspeed = function() {
 		return layer_get_vspeed(__layerID);	
 	}
 	
+	/// @return {Asset.GMShader}
 	static GetShader = function() {
 		return layer_get_shader(__layerID);
 	}
 	
+	/// @return {Real}
 	static GetX = function() {
 		return layer_get_x(__layerID);	
 	}
 	
+	/// @return {Real}
 	static GetY = function() {
 		return layer_get_y(__layerID);	
 	}
 	
+	/// @return {Boolean}
 	static GetVisible = function() {
 		return layer_get_visible(__layerID);	
 	}
 	
+	/// @return {Boolean}
 	static IsAlive = function() {
 		return layer_exists(__layerID);	
 	}
 	
+	/// @return {Real}
 	static GetDepth = function() {
 		return layer_get_depth(__layerID);	
 	}
 	
-	static GetLayerID = function() {
+	/// @return {Id.Layer}
+	static GetLayerId = function() {
 		return __layerID;	
 	}
 	
+	/// @return {String}
 	static GetName = function() {
 		return layer_get_name(__layerID);	
 	}
@@ -143,9 +154,10 @@ function __SliceClass(_layerID) constructor {
 		__layerID = -1;
 	}
 	#endregion
-	
+	/// @param {String, Constant.AssetType} assetName
+	/// @return {Array}
 	static GetAsset = function(_assetName) {
-		var _result;
+		var _result = undefined;
 		if (is_array(_assetName)) {
 			_result = [];
 			var _array;
@@ -162,24 +174,23 @@ function __SliceClass(_layerID) constructor {
 			return __GetAllSprites();	
 		}
 		
-		if (asset_get_index(_assetName) == -1) {
-			show_debug_message("Slice: Invalid asset name " + string(_assetName) + "!");
-			return undefined;
+		if (_assetName == asset_tiles) {
+			return __GetAssetTilemapElement(all);	
 		}
 	
 		var _type = asset_get_type(_assetName);
 		var _assetIndex = asset_get_index(_assetName);
 		switch(_type) {
-			
 			case asset_sprite: _result = __GetAssetSpriteElement(_assetIndex); break;
 			case asset_object: _result = __GetAssetInstancesByObjectElement(_assetIndex); break;
 			case asset_tiles: _result = __GetAssetTilemapElement(_assetIndex); break;
 			default: _result = []; break;
 		}
 		
-		return _result;
+		return _result ?? [];
 	}
-	
+
+	/// @return {Struct.__SliceTilemapClass, Undefined}
 	static GetTilemap = function() {
 		var _elements = layer_get_all_elements(__layerID);
 		var _i = 0;
@@ -194,6 +205,8 @@ function __SliceClass(_layerID) constructor {
 		return undefined;
 	}
 	
+	/// @param {String} assetName
+	/// @return {Array<Id.Instance>, Undefined}
 	static GetInstancesByObject = function(_assetName) {
 		if (is_array(_assetName)) {
 			_result = [];
@@ -209,13 +222,14 @@ function __SliceClass(_layerID) constructor {
 		}
 		
 		if (asset_get_index(_assetName) == -1) {
-			show_debug_message("Slice: Invalid asset name " + string(_assetName) + "!");
+			__SliceTrace("Invalid asset name " + string(_assetName) + "!");
 			return undefined;
 		}
 
 		return __GetAssetInstancesByObject(asset_get_index(_assetName));
 	}
-		
+	
+	/// @return {Struct.__SliceTilemapClass, Undefined}}
 	static GetBackground = function() {
 		var _elements = layer_get_all_elements(__layerID);
 		var _i = 0;
@@ -228,6 +242,22 @@ function __SliceClass(_layerID) constructor {
 		
 		// If none found
 		return undefined;
+	}
+	
+	/// @return {Array<Struct.__SliceBackgroundClass>}
+	static GetAllBackgrounds = function() {
+		var _elements = layer_get_all_elements(__layerID);
+		var _i = 0;
+		var _array = [];
+		repeat(array_length(_elements)) {
+			if ((layer_get_element_type(_elements[_i]) == layerelementtype_background)) {
+				array_push(_array, new __SliceBackgroundClass(_elements[_i]));
+			}
+			++_i;
+		}
+		
+		// If none found
+		return _array;
 	}
 	#endregion
 	
@@ -277,7 +307,7 @@ function __SliceClass(_layerID) constructor {
 		var _i = 0;
 		var _array = [];
 		repeat(array_length(_elements)) {
-			if ((layer_get_element_type(_elements[_i]) == layerelementtype_tilemap) && (tilemap_get_tileset(_elements[_i]) == _assetIndex)) {
+			if ((layer_get_element_type(_elements[_i]) == layerelementtype_tilemap) && ((_assetIndex == all) || (tilemap_get_tileset(_elements[_i]) == _assetIndex))) {
 				array_push(_array, new __SliceTilemapClass(_elements[_i]));
 			}
 			++_i;

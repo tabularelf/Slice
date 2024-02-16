@@ -1,7 +1,8 @@
 /// @ignore
+/// feather ignore all
 function __SliceElementClass() constructor {
 	static Move = function(_slice) {
-		if (instanceof(_slice) == "__SliceClass") {
+		if (is_struct(_slice)) && (instanceof(_slice) == "__SliceClass") {
 			layer_element_move(__elementID, _slice.__layerID);
 		} else {
 			 layer_element_move(__elementID, _slice);
@@ -9,7 +10,7 @@ function __SliceElementClass() constructor {
 		return self;
 	}
 	
-	static GetElementID = function() {
+	static GetElementId = function() {
 		return __elementID;	
 	}
 }

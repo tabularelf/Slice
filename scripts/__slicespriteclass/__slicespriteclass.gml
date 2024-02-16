@@ -1,8 +1,11 @@
 /// @ignore
+/// feather ignore all
 function __SliceSpriteClass(_spriteElement) : __SliceElementClass() constructor {
 	__elementID = _spriteElement;
 
 	#region Setters
+	
+	/// @param
 	static SetSprite = function(_sprite) {
 		layer_sprite_change(__elementID, _sprite);
 		__spriteID = _sprite;
