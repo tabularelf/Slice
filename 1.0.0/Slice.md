@@ -17,9 +17,73 @@ Returns: Instance of `__SliceClass`
 
 |Name|Datatype|Purpose|
 |---|---|---|
-|`LayerID`|`String or LayerID`|The layerID you like to create a Slice instance from.|
+|`LayerID`|`String or LayerID`|The layerID you'd like to create a Slice instance from.|
 
 Creates and returns a new Slice instance, attached to an existing layer Id.
+
+## Slice Class General Methods
+
+### `.IsAlive()`
+
+Returns: `Boolean`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Gets whether the Slice exists or not.
+
+### `.Destroy()`
+
+Returns: `N/A`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Destroys the Slice instance and attached layer.
+
+?> Note: If you use `LayerToSlice()`, you do not need to call `.Destroy()`!
+
+### `.GetAsset()`
+
+Returns: `Array of __SliceElementClass`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`asset`|`String` or `asset_* constant` or array.|The assets you wish to extract from the Slice layer.|
+
+Extracts the specified assets and returns them in an array.
+
+### `.GetTilemap()`
+
+Returns: `__SliceTilemapClass` or `undefined`.
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`||
+
+Returns the first tilemap if available, otherwise returns `undefined`.
+
+### `.GetBackground()`
+
+Returns: `__SliceBackgroundClass` or `undefined`.
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`||
+
+Returns the first background if available, otherwise returns `undefined`.
+
+### `.GetInstancesByObject(asset)`
+
+Returns: `Array of instance Ids`.
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`asset`|`String` or `asset_object`|The object instances you wish to fetch.|
+
+Returns all object instances that was specified.
 
 ## Slice Class Methods (Setters)
 
@@ -144,7 +208,7 @@ Enables or disables the currently applied filter/effect.
 
 ## Slice Class Methods (Getters)
 
-### `.GetFX(state)`
+### `.GetFXState()`
 
 Returns: `FX`
 
@@ -214,3 +278,43 @@ Returns: `Real`
 |`N/A`|||
 
 Gets the Slice y position.
+
+### `.GetVisible()`
+
+Returns: `Boolean`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Gets the Slice current visible status.
+
+### `.GetDepth()`
+
+Returns: `Real`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Gets the Slice current depth.
+
+### `.GetLayerId()`
+
+Returns: `layerId`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Gets the Slice current layer Id.
+
+### `.GetName()`
+
+Returns: `String`
+
+|Name|Datatype|Purpose|
+|---|---|---|
+|`N/A`|||
+
+Gets the Slice current layer name.
