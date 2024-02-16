@@ -8,3 +8,5 @@
 **Elements**
 - [SliceElementClass](SliceElementClass.md)
 - [SliceSpriteClass](SliceSpriteClass.md)
+- [SliceTilemapClass](SliceTilemapClass.md)
+- [SliceBackgroundClass](SliceTilemapClass.md)
