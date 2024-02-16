@@ -12,7 +12,7 @@ Returns: `Self`
 
 Moves the element to another Slice or layer.
 
-### `.GetElementID(layerOrSlice)`
+### `.GetElementId(layerOrSlice)`
 
 Returns: `Self`
 
@@ -20,4 +20,4 @@ Returns: `Self`
 |---|---|---|
 |`N/A`|||
 
-Returns the current element Id associated with the element class.
+Returns the current element Id associated with the element class. 
