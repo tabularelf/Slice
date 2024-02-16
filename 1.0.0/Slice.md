@@ -81,9 +81,9 @@ Returns: `Array of instance Ids`.
 
 |Name|Datatype|Purpose|
 |---|---|---|
-|`asset`|`String` or `asset_object`|The object instances you wish to fetch.|
+|`asset`|`String` or `asset_object`|TThe object you wish to fetch the instances of.|
 
-Returns all object instances that was specified.
+Returns all instances of the object that was specified.
 
 ## Slice Class Methods (Setters)
 
@@ -95,7 +95,7 @@ Returns: `Self`
 |---|---|---|
 |`func`|`Function or Method Id`|The function or method used to be called.|
 
-Assigns a Slice instance with a callback to call every time the Slice instance's layer begins to render. It takes a single argument, that contains the slice instance.
+Assigns a Slice instance with a callback to call every time the Slice instance’s layer begins rendering. The function you pass should take a single argument, and that argument will take a slice instance. (See example above)
 
 Example:
 ```gml
@@ -124,7 +124,7 @@ Returns: `Self`
 |---|---|---|
 |`func`|`Function or Method Id`|The function or method used to be called.|
 
-Assigns a Slice instance with a callback to call every time the Slice instance's layer finishes rendering. It takes a single argument, that contains the slice instance. (Example is same as above)
+Assigns a Slice instance with a callback to call every time the Slice instance’s layer finishes rendering. The function you pass should take a single argument, and that argument will take a slice instance. (See example above)
 
 ### `.SetVisible(value)`
 
