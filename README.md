@@ -1,3 +1,3 @@
-# Slice v0.0.2alpha
+# Slice v1.0.0
  
-Layer Wrapper for GameMaker
+Layer wrapper library for GameMaker LTS
