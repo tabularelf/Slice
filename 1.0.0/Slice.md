@@ -239,7 +239,7 @@ Returns: `Real`
 
 Gets the current horizontal speed.
 
-### `.GetVpeed()`
+### `.GetVspeed()`
 
 Returns: `Real`
 
