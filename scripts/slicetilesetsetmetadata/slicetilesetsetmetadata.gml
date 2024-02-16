@@ -3,6 +3,7 @@
 /// @param {Real} _index
 /// @param {Any} _data
 function SliceTilesetSetMetadata(_tilesetID, _index, _data) {
+	static _init = __SliceInit();
 	var _tileset = global.__SliceStruct.tilesetsList[_tilesetID];
 	
 	if (array_length(_tileset.__metadata) < _index) {

@@ -5,7 +5,7 @@ __SliceTrace(__SLICE_VERSION + " initalized! Created by " + __SLICE_CREDITS);
 
 function __SliceInit() {
 	static _init = false;
-	if (_init = false) {
+	if (_init == false) {
 		_init = true;	
 		global.__SliceStruct = {
 			tilesetsList: [],
