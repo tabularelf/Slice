@@ -1,11 +1,3 @@
-/// @description Insert description here
-layer_element_move(layer_tilemap_get_id(layer_get_id("Tiles_1_1")), layer_get_id("Tiles_1"))
-//show_debug_message(LayerToSlice("Sprites").GetAsset("spr_tabelf"));
-//show_debug_message(LayerToSlice("Instances").GetAsset("obj_test_get_sprite"));
-//show_debug_message(LayerToSlice("Tiles_1").GetAsset("TileSet1"));
-//
-//show_debug_message(LayerToSlice("Instances").GetTilemap());
-
 spriteSlice = LayerToSlice("Instances");
 repeat(10) {
 	layer_sprite_create("Instances", irandom(room_width), irandom(room_height), choose(spr_tabelf, spr_tabbyducky));	
@@ -53,6 +45,12 @@ SliceTilesetSetMetadata(TileSet1, 0, {test: false});
 	SliceSprite
 	.SetColour(value)
 	.SetAlpha(value)
-	.SetX(value)/
+	.SetX(value)
 	.SetY(value)
+	.SetXScale(value)
+	.SetYScale(value)
+	.SetSpeed(value)
+	.SetAngle(value)
+	.SetIndex(value)
+	
 */

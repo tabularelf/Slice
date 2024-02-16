@@ -72,13 +72,4 @@ function __SliceTilemapClass(_tilemapID) : __SliceElementClass() constructor {
 		tilemap_set(__elementID, __data, _cx, _cy);
 		return self;	
 	}
-	
-		
-	static SetIndexAtPixel = function(_index, _x, _y) {
-		var _cx = _x div __tileWidth;
-		var _cy = _y div __tileHeight;
-		var _data = tile_set_index(tilemap_get(__elementID, _cx, _cy), _index);
-		tilemap_set(__elementID, __data, _cx, _cy);
-		return self;	
-	}
 }
