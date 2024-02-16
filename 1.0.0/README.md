@@ -7,7 +7,7 @@
 
 ---
 
-Lexicon is a localization system focused around on simplifying implementation of adding translation to your GameMaker project, whether it's on the developers end or the players end! As well as giving the flexibility in on the fly string replacement, and fallbacks to other languages/locales.
+Slice is a layer wrapper library, designed to ease manipulating multiple assets, as well as filling in tile metadata for any tilesets.
 
 # Features
 
