@@ -1,6 +1,6 @@
 # SliceSpriteClass
 
-### `Slice(depth, [layerName])`
+### `.SetSprite(sprite_index)`
 
 Returns: Instance of `__SliceClass`
 

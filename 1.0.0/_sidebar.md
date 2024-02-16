@@ -2,11 +2,11 @@
 - [Getting started](gettingstarted.md)
 ---
 **Functions**
-
+- [General](general.md)
 - [Slice](Slice.md)
 ---
 **Elements**
 - [SliceElementClass](SliceElementClass.md)
-- [SliceSpriteClass](SliceSpriteClass.md)
 - [SliceTilemapClass](SliceTilemapClass.md)
-- [SliceBackgroundClass](SliceTilemapClass.md)
+- [SliceSpriteClass](SliceSpriteClass.md)
+- [SliceBackgroundClass](SliceBackgroundClass.md)
