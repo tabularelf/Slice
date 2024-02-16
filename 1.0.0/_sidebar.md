@@ -3,5 +3,5 @@
 ---
 **Functions**
 
-- [Slice](slice.md)
+- [Slice](Slice.md)
 - [SliceSpriteClass](sliceSpriteClass.md)
