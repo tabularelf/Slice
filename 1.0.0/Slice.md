@@ -247,7 +247,7 @@ Returns: `Real`
 |---|---|---|
 |`N/A`|||
 
-Gets the current horizontal speed.
+Gets the current vertical speed.
 
 ### `.GetShader()`
 
