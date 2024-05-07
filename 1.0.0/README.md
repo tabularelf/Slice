@@ -25,7 +25,7 @@ You're free to use, modify and contribute at your own will.
 
 # License
 
-Lexicon is under the [MIT License](https://github.com/tabularelf/Slice/blob/main/LICENSE).
+Slice is under the [MIT License](https://github.com/tabularelf/Slice/blob/main/LICENSE).
 
 # Credits
 
